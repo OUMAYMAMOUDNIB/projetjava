@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            stylesheets="@../application/application.css"
+            fx:controller="controllers.StatistiqueController">
+    <center>
+            <VBox spacing="12" styleClass="dashboard-page">
+                <padding>
+                    <Insets top="14" right="18" bottom="14" left="18"/>
+                </padding>
+
+                <VBox spacing="4">
+                    <Label text="Tableau de bord" styleClass="dashboard-title"/>
+                    <Label text="Suivi du stock, des expirations et des ventes" styleClass="dashboard-subtitle"/>
+                </VBox>
+
+                <HBox spacing="12" styleClass="kpi-row">
+                    <VBox styleClass="kpi-card">
+                        <Label text="Medicaments" styleClass="kpi-label"/>
+                        <Label fx:id="labelTotalMedicaments" text="0" styleClass="kpi-value"/>
+                    </VBox>
+                    <VBox styleClass="kpi-card">
+                        <Label text="Stock bas" styleClass="kpi-label"/>
+                        <Label text="moins de 10" styleClass="kpi-caption"/>
+                        <Label fx:id="labelStockBas" text="0" styleClass="kpi-value"/>
+                    </VBox>
+                    <VBox styleClass="kpi-card">
+                        <Label text="Expiration proche" styleClass="kpi-label"/>
+                        <Label text="moins de 90 jours" styleClass="kpi-caption"/>
+                        <Label fx:id="labelExpirationProche" text="0" styleClass="kpi-value"/>
+                    </VBox>
+                    <VBox styleClass="kpi-card">
+                        <Label text="Chiffre d'affaires" styleClass="kpi-label"/>
+                        <Label fx:id="labelChiffreAffaires" text="0 DH" styleClass="kpi-money"/>
+                    </VBox>
+                    <VBox styleClass="kpi-card">
+                        <Label text="Top vente" styleClass="kpi-label"/>
+                        <Label fx:id="labelTopMedicament" text="Aucune vente" styleClass="kpi-value-small"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="12" styleClass="dashboard-grid">
+                    <VBox spacing="10" styleClass="dashboard-panel">
+                        <Label text="Alertes stock faible" styleClass="panel-title"/>
+                        <Label text="Medicaments avec quantite inferieure a 10" styleClass="panel-subtitle"/>
+                        <ListView fx:id="listStockBas" prefHeight="104"/>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="dashboard-panel">
+                        <Label text="Expirations proches" styleClass="panel-title"/>
+                        <Label text="Medicaments qui expirent dans moins de 90 jours" styleClass="panel-subtitle"/>
+                        <ListView fx:id="listExpirationProche" prefHeight="104"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="12" styleClass="dashboard-grid">
+                    <VBox spacing="10" styleClass="dashboard-panel">
+                        <Label text="Evolution des ventes" styleClass="panel-title"/>
+                        <LineChart fx:id="lineChartVentes" prefHeight="216" legendVisible="false" animated="false" createSymbols="true">
+                            <xAxis>
+                                <CategoryAxis label="Mois" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Montant" />
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="dashboard-panel">
+                        <Label text="Medicaments les plus vendus" styleClass="panel-title"/>
+                        <Label text="Classement par quantite vendue" styleClass="panel-subtitle"/>
+                        <VBox fx:id="topMedicamentsBox" spacing="8" prefHeight="216" styleClass="ranking-box"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Pos?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.LoginController"
+            stylesheets="@../application/application.css"
+            styleClass="root">
+
+    <VBox alignment="CENTER" spacing="20"
+          AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0"
+          AnchorPane.bottomAnchor="0.0"
+          styleClass="login-container">
+
+        <!-- Titre -->
+        <Label text="Gestion de Pharmacie" styleClass="title"/>
+
+        <!-- Champ nom d'utilisateur avec label -->
+        <VBox alignment="CENTER_LEFT" spacing="4" maxWidth="280">
+            <Label text="Nom d'utilisateur :" styleClass="input-label"/>
+            <TextField fx:id="txtUsername" promptText="Nom d'utilisateur"
+                       styleClass="input-field" maxWidth="Infinity"/>
+        </VBox>
+
+        <!-- Champ mot de passe avec label, champ visible/masqué, icône à droite -->
+        <VBox alignment="CENTER_LEFT" spacing="4" maxWidth="280">
+            <Label text="Mot de passe :" styleClass="input-label"/>
+            <StackPane maxWidth="Infinity" style="-fx-background-color: transparent;">
+                <PasswordField fx:id="txtPassword" promptText="Mot de passe"
+                               styleClass="input-field" maxWidth="Infinity"/>
+                <TextField fx:id="txtPasswordVisible" promptText="Mot de passe"
+                           styleClass="input-field" visible="false" managed="false" maxWidth="Infinity"/>
+                <ImageView fx:id="iconView"
+                           fitHeight="16" fitWidth="16"
+                           onMouseClicked="#togglePasswordVisibility"
+                           StackPane.alignment="CENTER_RIGHT"
+                           style="-fx-cursor: hand; -fx-translate-x: -12;" />
+            </StackPane>
+        </VBox>
+
+        <!-- Bouton de connexion -->
+        <Button text="Se connecter" onAction="#handleLogin" styleClass="button-login"/>
+
+        <!-- Label d’erreur -->
+        <Label fx:id="errorLabel" text="" styleClass="error-label" visible="false"/>
+    </VBox>
+</AnchorPane>

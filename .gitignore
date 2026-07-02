@@ -1,0 +1,18 @@
+# Build output
+target/
+bin/
+
+# Eclipse workspace/project metadata
+.metadata/
+.settings/
+.classpath
+.project
+build.fxbuild
+
+# VS Code local files
+.vscode/*
+!.vscode/tasks.json
+
+# OS files
+Thumbs.db
+.DS_Store

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../application/application.css"
+            fx:controller="controllers.MedicamentController">
+
+    <top>
+        <HBox spacing="10" styleClass="header-bar" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="Medicaments" styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="content">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <TableView fx:id="tableMedicaments" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colNom" text="Medicament" prefWidth="150"/>
+                    <TableColumn fx:id="colCategorie" text="Categorie" prefWidth="150"/>
+                    <TableColumn fx:id="colDateEntree" text="Date entree" prefWidth="120"/>
+                    <TableColumn fx:id="colDateExpiration" text="Expiration" prefWidth="120"/>
+                    <TableColumn fx:id="stockColumn" text="Stock" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="txtNom" promptText="Nom medicament"/>
+                <TextField fx:id="txtCategorie" promptText="Categorie"/>
+                <DatePicker fx:id="dateEntree" promptText="Date entree"/>
+                <DatePicker fx:id="dateExpiration" promptText="Date expiration"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Ajouter" onAction="#ajouterMedicament" styleClass="btn-green"/>
+                <Button text="Modifier" onAction="#modifierMedicament" styleClass="btn-blue"/>
+                <Button text="Supprimer" onAction="#supprimerMedicament" styleClass="btn-red"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

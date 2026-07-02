@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../application/application.css"
+            fx:controller="controllers.ApprovisionnementController">
+
+    <top>
+        <HBox spacing="10" styleClass="header-bar" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="Approvisionnements" styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="content">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <TableView fx:id="tableApprovisionnements">
+                <columns>
+                    <TableColumn text="ID" fx:id="colId"/>
+                    <TableColumn text="Medicament" fx:id="colMedicamentNom"/>
+                    <TableColumn text="Pharmacien" fx:id="colPharmacienNom"/>
+                    <TableColumn text="Quantite" fx:id="colQuantite"/>
+                    <TableColumn text="Date approvisionnement" fx:id="colDateApprovisionnement"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <ComboBox fx:id="comboMedicamentId" promptText="Selectionner medicament"/>
+                <ComboBox fx:id="comboPharmacienId" promptText="Selectionner pharmacien"/>
+                <TextField fx:id="txtQuantite" promptText="Quantite"/>
+                <DatePicker fx:id="dateApprovisionnement" promptText="Date approvisionnement"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Ajouter" onAction="#ajouterApprovisionnement" styleClass="btn-green"/>
+                <Button text="Modifier" onAction="#modifierApprovisionnement" styleClass="btn-blue"/>
+                <Button text="Supprimer" onAction="#supprimerApprovisionnement" styleClass="btn-red"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

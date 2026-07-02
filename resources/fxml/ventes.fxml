@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../application/application.css"
+            fx:controller="controllers.VenteController">
+
+    <top>
+        <HBox spacing="10" styleClass="header-bar" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="Ventes de medicaments" styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="content">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <TableView fx:id="tableVentes" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colMedicament" text="Medicament" prefWidth="150"/>
+                    <TableColumn fx:id="colQuantite" text="Quantite" prefWidth="100"/>
+                    <TableColumn fx:id="colPrixUnitaire" text="Prix Unitaire" prefWidth="120"/>
+                    <TableColumn fx:id="colUnite" text="Unite" prefWidth="100"/>
+                    <TableColumn fx:id="colDateVente" text="Date de Vente" prefWidth="150"/>
+                    <TableColumn fx:id="colMontant" text="Montant" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <ComboBox fx:id="comboMedicament" promptText="Medicament" prefWidth="200"/>
+                <TextField fx:id="txtQuantite" promptText="Quantite" prefWidth="100"/>
+                <TextField fx:id="txtPrixUnitaire" promptText="Prix Unitaire" prefWidth="100"/>
+                <TextField fx:id="txtUnite" promptText="Unite" prefWidth="100"/>
+                <DatePicker fx:id="dateVente" promptText="Date de Vente" prefWidth="150"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Ajouter" onAction="#ajouterVente" styleClass="btn-green"/>
+                <Button text="Modifier" onAction="#modifierVente" styleClass="btn-blue"/>
+                <Button text="Supprimer" onAction="#supprimerVente" styleClass="btn-red"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
